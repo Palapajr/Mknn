@@ -73,7 +73,7 @@ class Spk extends CI_Controller {
     }
 
     public function simpan_log($data){
-        $param = array_merge($data['input'], ['kelas'=>$data['result'][0]['prediksi']]);
+        $param = array_merge($data['input'], ['kelas'=>$data['result']['klasifikasi'][0]['prediksi']]);
         return $this->db->insert('log_spk', $param);
     }
 }
