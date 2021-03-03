@@ -28,11 +28,14 @@
                 </a>
             </div>
         </div>
-        <div class="row invisible" data-toggle="appear">
-            <div class="col-12">
-                <canvas id="dashchart"></canvas>
+            <div class="block">
+                <div class="block-content block-content-full">
+                <h3 class="text-center">Grafik Perbandingan Data </h3>
+                    <div class="row invisible" data-toggle="appear">
+                        <canvas id="dashchart"></canvas>
+                    </div>
+                </div>    
             </div>
-        </div>
     </div>
     <!-- END Page Content -->
 
