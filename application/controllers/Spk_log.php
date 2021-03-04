@@ -1,44 +1,41 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-require_once APPPATH . 'third_party/Spout/Autoloader/autoload.php';
+// require_once APPPATH . 'third_party/Spout/Autoloader/autoload.php';
 
-use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
+// use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
 
-class Log_spk extends CI_Controller {
+class Spk_log extends CI_Controller {
 
     public function __construct()
     {
         parent::__construct();
 
         if (!$this->session->userdata('nama')) {
-			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"><i class="fas fa-exclamation-triangle"></i> Anda Harus Login Terlebih dahulu</div>');
-			redirect('auth');
-		}
-
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert"><i class="fas fa-exclamation-triangle"></i> Anda Harus Login Terlebih dahulu</div>');
+            redirect('auth');
+        }
+        
         $this->load->library('form_validation');
-        $this->load->model('Modelspk', 'log_spk');
+        $this->load->model('Modelspk', 'spk');
+
     }
 
     public function index()
     {
-        
         $parser = [
-            'list' => 'log_spk',
-            'menu' => 'log_spk',
-            'tittle' => 'SIPILJur - Data SPK Terklasifikasi',
-            'isi' => $this->load->view('admin/data_spk', '', true)
+            'list' => 'spk_log',
+            'menu' => 'spk_log',
+            'tittle' => 'SIPILJur - Data Data SPK Terklasifikasi',
+            'isi' => $this->load->view('admin/spk_log', '', true)
         ];
-   
         $this->parser->parse('admin/main', $parser);
     }
 
     public function ambildata()
     {
-        
-        if ($this->input->is_ajax_request() == true) {
-
-            $list = $this->log_spk->get_datatables();
+        if ($this->input->is_ajax_request() == true ) {
             
+            $list = $this->spk->get_datatables();
             $data = array();
             $no = $_POST['start'];
             foreach ($list as $field) {
@@ -46,14 +43,14 @@ class Log_spk extends CI_Controller {
                 $no++;
                 $row = array();
 
-                //tombol 
-                $tomboledit = "<button type=\"button\" class=\"btn btn-sm btn-outline-info\" title=\"Edit Data\" onclick=\"edit('" . $field->nis . "')\">
-                <i class=\"fa fa-tags\"></i>
-            </button>";
+            //     //tombol 
+            //     $tomboledit = "<button type=\"button\" class=\"btn btn-sm btn-outline-info\" title=\"Edit Data\" onclick=\"edit('" . $field->nis . "')\">
+            //     <i class=\"fa fa-tags\"></i>
+            // </button>";
 
-                $tombolhapus = "<button type=\"button\" class=\"btn btn-sm btn-outline-danger\" title=\"Hapus Data\" onclick=\"hapus('" . $field->nis . "')\">
-                <i class=\"fa fa-trash\"></i>
-            </button>";
+            //     $tombolhapus = "<button type=\"button\" class=\"btn btn-sm btn-outline-danger\" title=\"Hapus Data\" onclick=\"hapus('" . $field->nis . "')\">
+            //     <i class=\"fa fa-trash\"></i>
+            // </button>";
 
                 $row[] = $no;
                 $row[] = $field->nis;
@@ -71,14 +68,14 @@ class Log_spk extends CI_Controller {
                 $row[] = $field->minat;
                 $row[] = $field->nilai_iq;
                 $row[] = $field->kelas;
-                $row[] = $tomboledit . ' ' . $tombolhapus;
+                // $row[] = $tomboledit . ' ' . $tombolhapus;
                 $data[] = $row;
             }
 
             $output = array(
                 "draw" => $_POST['draw'],
-                "recordsTotal" => $this->log_spk->count_all(),
-                "recordsFiltered" => $this->log_spk->count_filtered(),
+                "recordsTotal" => $this->spk->count_all(),
+                "recordsFiltered" => $this->spk->count_filtered(),
                 "data" => $data,
             );
             //output dalam format JSON
@@ -93,7 +90,7 @@ class Log_spk extends CI_Controller {
         if ($this->input->is_ajax_request() == true) {
             $nis = $this->input->post('nis', true);
 
-            $ambildata = $this->log_spk->ambildata($nis);
+            $ambildata = $this->training->ambildata($nis);
 
             if ($ambildata->num_rows() > 0) {
                 $row = $ambildata->row_array();
@@ -117,7 +114,7 @@ class Log_spk extends CI_Controller {
             }
             
             $msg = [
-                'sukses' => $this->load->view('admin/modalspk', $data, true)
+                'sukses' => $this->load->view('admin/modaledittraining', $data, true)
             ];
 
             echo json_encode($msg);
@@ -143,7 +140,7 @@ class Log_spk extends CI_Controller {
             $nilai_iq = $this->input->post('nilai_iq', true);
             $kelas = $this->input->post('kelas', true);
 
-            $this->log_spk->update($nis, $nama_siswa, $rapor_ind, $usbn_ind, $rapor_ing, $usbn_ing, $rapor_mtk, $usbn_mtk, $rapor_ipa, $usbn_ipa, $rapor_ips, $usbn_ips, $minat, $nilai_iq, $kelas);
+            $this->training->update($nis, $nama_siswa, $rapor_ind, $usbn_ind, $rapor_ing, $usbn_ing, $rapor_mtk, $usbn_mtk, $rapor_ipa, $usbn_ipa, $rapor_ips, $usbn_ips, $minat, $nilai_iq, $kelas);
 
             $msg = [
                 'sukses' => 'data mahasiswa berhasil di-update'
@@ -157,7 +154,7 @@ class Log_spk extends CI_Controller {
         if ($this->input->is_ajax_request() == true) {
             $nis = $this->input->post('nis', true);
 
-            $hapus = $this->testing->hapus($nis);
+            $hapus = $this->training->hapus($nis);
 
             if ($hapus) {
                 $msg = [
@@ -167,6 +164,5 @@ class Log_spk extends CI_Controller {
             echo json_encode($msg);
         }
     }
-
 }
  

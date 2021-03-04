@@ -76,4 +76,6 @@ class Spk extends CI_Controller {
         $param = array_merge($data['input'], ['kelas'=>$data['result']['klasifikasi'][0]['prediksi']]);
         return $this->db->insert('log_spk', $param);
     }
+
+    
 }

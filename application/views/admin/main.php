@@ -121,7 +121,7 @@
                                 <a href="<?= site_url('Dashboard') ?>" class="<?php if ($menu == "dashboard") { echo "active"; } ?>"><i class="si si-cup"></i><span class="sidebar-mini-hide">Dashboard</span></a>
                             </li>
 
-                            <li class="<?php if ($list == "training" || $list == "testing" || $list == "log_spk") { echo "open"; } ?>">
+                            <li class="<?php if ($list == "training" || $list == "testing" || $list == "spk_log") { echo "open"; } ?>">
                                 <a class="nav-submenu" data-toggle="nav-submenu" href=""><i class="si si-grid"></i><span class="sidebar-mini-hide">Manajemen Data</span></a>
                                 <ul>
                                     <li>
@@ -131,7 +131,7 @@
                                         <a href="<?= site_url('Testing') ?>" class="<?php if ($menu == "testing") { echo "active"; } ?>">Testing</a>
                                     </li>
                                     <li>
-                                        <a href="<?= site_url('Log_spk') ?>" class="<?php if ($menu == "log_spk") { echo "active"; } ?>">SPK</a>
+                                        <a href="<?= site_url('spk_log') ?>" class="<?php if ($menu == "spk_log") { echo "active"; } ?>">SPK</a>
                                     </li>
                                 </ul>
                             </li>

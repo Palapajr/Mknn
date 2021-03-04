@@ -52,7 +52,7 @@
                             <th>Minat</th>
                             <th>Nilai IQ</th>
                             <th>Kelas</th>
-                            <th>Aksi</th>
+                            <!-- <th>Aksi</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -71,7 +71,8 @@
 
 <script> 
 
-function tampildatalog_spk() {
+
+function tampildataspk() {
     table = $('#datalog_spk').DataTable({
         responsive: true,
         "destroy": true,
@@ -80,7 +81,7 @@ function tampildatalog_spk() {
         "order": [],
 
         "ajax": {
-            "url": "<?= site_url('Log_spk/ambildata') ?>",
+            "url": "<?= site_url('Spk_log/ambildata') ?>",
             "type": "POST"
         },
 
@@ -94,10 +95,14 @@ function tampildatalog_spk() {
     });
 }
 
+$(document).ready(function () {
+    tampildataspk();
+});
+
 function edit(nis) {
     $.ajax({
         type: 'post',
-        url: "<?= site_url('Log_spk/formedit') ?>",
+        url: "<?= site_url('spk_log/formedit') ?>",
         data: {
             nis: nis
         },
@@ -105,10 +110,10 @@ function edit(nis) {
         success: function(response) {
             if (response.sukses) {
                 $('.viewmodal').html(response.sukses).show();
-                $('#modallog_spk').on('shown.bs.modal', function(e) {
+                $('#modalspk_log').on('shown.bs.modal', function(e) {
                     $('#nama_siswa').focus();
                 })
-                $('#modallog_spk').modal('show');
+                $('#modalspk_log').modal('show');
             }
         }
     });
@@ -128,7 +133,7 @@ function hapus(nis) {
         if (result.value) {
             $.ajax({
                 type: "post",
-                url: "<?= site_url('Log_spk/hapus') ?>",
+                url: "<?= site_url('spk_log/hapus') ?>",
                 data: {
                     nis: nis,
                 },

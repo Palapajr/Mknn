@@ -27,6 +27,17 @@
                     </div>
                 </a>
             </div>
+            <div class="col-6 col-xl-3">
+                <a class="block block-rounded block-bordered block-link-shadow" href="javascript:void(0)">
+                    <div class="block-content block-content-full clearfix">
+                        <div class="float-right mt-15 d-none d-sm-block">
+                            <i class="si si-users fa-2x text-danger-light"></i>
+                        </div>
+                        <div class="font-size-h3 font-w600 text-danger"><?php echo $totalspk; ?></div>
+                        <div class="font-size-sm font-w600 text-uppercase text-muted">Data Siswa Terklasifikasi</div>
+                    </div>
+                </a>
+            </div>
         </div>
             <div class="block">
                 <div class="block-content block-content-full">

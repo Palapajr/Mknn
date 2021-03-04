@@ -8,6 +8,7 @@ class Dashboard extends CI_Controller {
         parent::__construct();
         $this->load->model('Modeltraining', 'training');
         $this->load->model('Modeltesting', 'testing');
+        $this->load->model('Modelspk', 'spk');
     }
     
     public function index()
@@ -15,6 +16,7 @@ class Dashboard extends CI_Controller {
         
         $sum['totaltraining'] = $this->training->tampil_sum();
         $sum['totaltesting'] = $this->testing->tampil_sum();
+        $sum['totalspk'] = $this->spk->tampil_sum();
         $group['training'] = $this->training->group_get();
         $group['testing'] = $this->testing->group_get();
         $parser = [

@@ -62,27 +62,27 @@ class Modelspk extends CI_Model
         return $this->db->count_all_results();
     }
 
-    // public function simpan($nis, $nama_siswa, $rapor_ind, $usbn_ind, $rapor_ing, $usbn_ing, $rapor_mtk, $usbn_mtk, $rapor_ipa, $usbn_ipa, $rapor_ips, $usbn_ips, $minat, $nilai_iq, $kelas)
-    // {
-    //     $simpan = [
-    //         'nis' => $nis,
-    //         'nama_siswa' => $nama_siswa,
-    //         'rapor_ind' => $rapor_ind,
-    //         'usbn_ind' => $usbn_ind,
-    //         'rapor_ing' => $rapor_ing,
-    //         'usbn_ing' => $usbn_ing,
-    //         'rapor_mtk' => $rapor_mtk,
-    //         'usbn_mtk' => $usbn_mtk,
-    //         'rapor_ipa' => $rapor_ipa,
-    //         'usbn_ipa' => $usbn_ipa,
-    //         'rapor_ips' => $rapor_ips,
-    //         'usbn_ips' => $usbn_ips,
-    //         'minat' => $minat,
-    //         'nilai_iq' => $nilai_iq,
-    //         'kelas' => $kelas
-    //     ];
-    //     $this->db->insert('log_spk', $simpan);
-    // }
+    public function simpan($nis, $nama_siswa, $rapor_ind, $usbn_ind, $rapor_ing, $usbn_ing, $rapor_mtk, $usbn_mtk, $rapor_ipa, $usbn_ipa, $rapor_ips, $usbn_ips, $minat, $nilai_iq, $kelas)
+    {
+        $simpan = [
+            'nis' => $nis,
+            'nama_siswa' => $nama_siswa,
+            'rapor_ind' => $rapor_ind,
+            'usbn_ind' => $usbn_ind,
+            'rapor_ing' => $rapor_ing,
+            'usbn_ing' => $usbn_ing,
+            'rapor_mtk' => $rapor_mtk,
+            'usbn_mtk' => $usbn_mtk,
+            'rapor_ipa' => $rapor_ipa,
+            'usbn_ipa' => $usbn_ipa,
+            'rapor_ips' => $rapor_ips,
+            'usbn_ips' => $usbn_ips,
+            'minat' => $minat,
+            'nilai_iq' => $nilai_iq,
+            'kelas' => $kelas
+        ];
+        $this->db->insert('lo', $simpan);
+    }
 
     public function ambildata($nis)
     {
@@ -116,7 +116,7 @@ class Modelspk extends CI_Model
     {
         return $this->db->delete('log_spk', ['nis' => $nis]);
     }
-
+    
     public function import_data($data)
     {
         $jumlah = count($data);
@@ -139,14 +139,11 @@ class Modelspk extends CI_Model
     public function tampil_sum()
     {
         $query = $this->db->get('log_spk');
-		return $query->num_rows();
-
-        // $query = $this->db->get('log_spk');
-        // if ($query->num_rows() > 0) {
-        //     return $query->num_rows();
-        // } else {
-        //     return 0;
-        // }
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
     }
 
     public function group_get(){
@@ -159,5 +156,4 @@ class Modelspk extends CI_Model
             return [["kelas"=>"MIPA", "total"=>0], ["kelas"=>"IPS", "total"=>0]];
         }
     }
-    
 }
