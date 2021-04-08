@@ -24,7 +24,7 @@
 <!-- Main Content -->
 <div class="content">
     <!-- Projects -->
-    <h2 class="content-heading">
+    <!-- <h2 class="content-heading">
         <button type="button" class="btn btn-sm btn-rounded btn-alt-secondary float-right">View More..</button>
         <i class="si si-briefcase mr-5"></i> Projects
     </h2>
@@ -133,7 +133,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- END Projects -->
 
   

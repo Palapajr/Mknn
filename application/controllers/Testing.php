@@ -275,6 +275,8 @@ class Testing extends CI_Controller {
             }
         } else {
             echo "Error :" . $this->upload->display_errors();
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger" role="alert"><i class="fas fa-exclamation-triangle"></i> File Di pilih dulu boss</div>');
+            redirect('Testing');
         };
     }
 
