@@ -12,29 +12,22 @@
   .pelajaran{
     width: 30%
   }
-  .invoice-head td {
-  padding: 0 8px;
-  }
-  .invoice-body{
-    background-color:transparent;
-  }
-  .invoice-thank{
-    margin-top: 60px;
-    padding: 5px;
-  }
-  address{
-    margin-top:15px;
-  }
-
-  h1 { font: bold: 100% sans-serif; letter-spacing: 0.5em; text-align: center; text-transform: uppercase; }
 </style>
 <body>
   <div class="container">
-    <h1 style="color: red;">Sistem Menyatakan</h1>
- 
+    <div class="row">
+      <div class="col-sm-12">
 
-<div class="row">
-        <table>
+        <div class="center"> 
+          <strong>Jurusan Disarankan</strong><br>
+          <?php if ($result['klasifikasi'][0]['prediksi'] == "MIPA") { ?>
+                <img src="<?= base_url('assets/media/MIPA.PNG') ?>" alt="">
+              <?php } else { ?>
+                <img src="<?= base_url('assets/media/IPS.PNG') ?>" alt="">
+              <?php } ?>
+        </div>
+<br>
+        <table style="width: 100%">
           <tr>
             <td>Nama Siswa <br>
               <strong><?= $input['nama_siswa'] ?></strong>
@@ -103,8 +96,6 @@
         </table>
       </div>
     </div>
-  </div>
-
   </div>
 </body>
 
