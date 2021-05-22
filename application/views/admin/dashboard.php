@@ -49,13 +49,22 @@
             </div>
     </div>
     <!-- END Page Content -->
-
+ 
     <?php } else { ?>
     <div class="content">
         <h1 class="heading text-center">SISTEM PEMILIHAN JURUSAN SMA NEGERI 6 KOTA PEKANBARU</h1>
             <div class="block">
                 <div class="block-content">
-                    <div class="row items-push">
+
+                <div class="block">
+                <div class="block-content block-content-full">
+                <h3 class="text-center">Grafik Data Siswa Masuk Berdasarkan Rekomendasi Jurusan </h3>
+                    <div class="row invisible" data-toggle="appear">
+                        <canvas id="dashchartuser"></canvas>
+                    </div>
+                </div>    
+            </div>
+                    <!-- <div class="row items-push">
                         <div class="col-md-4">
                         <div class="block-content p-0 overflow-hidden">
                             <a class="img-link" href="">
@@ -71,7 +80,7 @@
                             
                             
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
     </div>
