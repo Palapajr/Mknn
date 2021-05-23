@@ -12,8 +12,8 @@
   <!-- Bagian Info Siswa -->
   <div style="position: absolute; bottom: 104.8mm; left: 5.6mm; font-size: 15pt; font-weight: bold"><?= $input['nama_siswa'] ?></div>
   <div style="position: absolute; bottom: 90.8mm; left: 5.6mm; font-size: 15pt; font-weight: bold"><?= $input['nis'] ?></div>
-  <div style="position: absolute; bottom: 104.8mm; left: 75mm; width: 10mm; font-size: 15pt; font-weight: bold"><?= $input['minat'] ?></div>
-  <div style="position: absolute; bottom: 90.8mm; left: 75mm; width: 10mm; font-size: 15pt; font-weight: bold"><?= $input['nilai_iq'] ?></div>
+  <div style="position: absolute; bottom: 104.8mm; left: 75mm; width: 20mm; font-size: 15pt; font-weight: bold"><?= $input['minat'] ?></div>
+  <div style="position: absolute; bottom: 90.8mm; left: 75mm; width: 20mm; font-size: 15pt; font-weight: bold"><?= $input['nilai_iq'] ?></div>
 
   <!-- Bagian Nilai -->
   <div style="position: absolute; bottom: 19.7mm; left: 59.2mm;">
