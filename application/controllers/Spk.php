@@ -25,6 +25,7 @@ class Spk extends CI_Controller {
             if($action == "savelog"){
                 $this->simpan_log($payload);
                 $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"><i class="fas fa-exclamation-triangle"></i> Data berhasil disimpan</div>');
+                redirect(base_url('spk_log'));
             }
         }
 
