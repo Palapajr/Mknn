@@ -25,7 +25,7 @@
     ],
 
   }
-  var ctx = document.getElementById('dashchartuser').getContext('2d');
+  var ctx = document.getElementById('dashchart').getContext('2d');
   window.myBar = new Chart(ctx, {
     type: 'bar',
     data: data,
