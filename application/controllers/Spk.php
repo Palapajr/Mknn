@@ -25,6 +25,7 @@ class Spk extends CI_Controller {
             if($action == "savelog"){
                 $this->simpan_log($payload);
                 $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"><i class="fas fa-exclamation-triangle"></i> Data berhasil disimpan</div>');
+                redirect(base_url('spk_log'));
             }
         }
 
@@ -63,11 +64,11 @@ class Spk extends CI_Controller {
 
     public function proses_pdf($data){
         $mpdf = new \Mpdf\Mpdf([
-            'format'=>'A4',
-            'orientation'=>'P'
+            'format'=>'A5',
+            'orientation'=>'L'
         ]);
         $mpdf->SetDisplayMode('fullpage');
-        $html = $this->load->view('admin/spkprint', $data, true);
+        $html = $this->load->view('admin/spkprint_rev2', $data, true);
         $mpdf->WriteHTML($html);
         $mpdf->Output('mpdf.pdf', \Mpdf\Output\Destination::INLINE);
     }
