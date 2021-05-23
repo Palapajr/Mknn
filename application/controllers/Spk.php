@@ -64,11 +64,11 @@ class Spk extends CI_Controller {
 
     public function proses_pdf($data){
         $mpdf = new \Mpdf\Mpdf([
-            'format'=>'A4',
-            'orientation'=>'P'
+            'format'=>'A5',
+            'orientation'=>'L'
         ]);
         $mpdf->SetDisplayMode('fullpage');
-        $html = $this->load->view('admin/spkprint', $data, true);
+        $html = $this->load->view('admin/spkprint_rev2', $data, true);
         $mpdf->WriteHTML($html);
         $mpdf->Output('mpdf.pdf', \Mpdf\Output\Destination::INLINE);
     }
