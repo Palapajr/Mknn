@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-        <title>Welcome SIPJUR - Login Admin</title>
+        <title>Welcome SIPILJUR - Login Admin</title>
 
         <meta name="description" content="Codebase - Bootstrap 4 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
         <meta name="author" content="pixelcave">
@@ -57,7 +57,7 @@
                                 <!-- Header -->
                                 <div class="px-30 py-10">
                                     <h1 class="h3 font-w700 mt-30 mb-10">Selamat Datang di <a class="link-effect font-w700" href="">
-                                        <span class="font-size-xl text-primary-dark">SIP</span><span class="font-size-xl">Jur</span>
+                                        <span class="font-size-xl text-primary-dark">SIPIL</span><span class="font-size-xl">Jur</span>
                                     </a></h1>
                                     <h2 class="h5 font-w400 text-muted mb-0">Please sign in</h2>
                                 </div>

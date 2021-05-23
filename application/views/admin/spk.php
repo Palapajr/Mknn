@@ -9,6 +9,8 @@
             <div class="modal-body">
                 <?php if(isset($result)){ ?>
                 <div class="row">
+            <?= $this->session->flashdata('pesan'); ?>
+
                     <div class="col-sm-12">
                         <table class="table table-bordered">
                             <tr>

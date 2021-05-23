@@ -19,12 +19,14 @@ class Dashboard extends CI_Controller {
         $sum['totalspk'] = $this->spk->tampil_sum();
         $group['training'] = $this->training->group_get();
         $group['testing'] = $this->testing->group_get();
+        $group['spk'] = $this->spk->group_get();
         $parser = [
             'list' => '',
             'menu' => 'dashboard',
             'tittle' => 'SIPILJur - Welcome Dashboard',
             'isi' => $this->load->view('admin/dashboard', $sum,  true),
-            'script' => $this->load->view('admin/_chart_dashboard', $group, true)
+            'script' => $this->load->view('admin/_chart_dashboard', $group, true),
+            'script' => $this->load->view('admin/_chart_user', $group, true)
         ];
         $this->parser->parse('admin/main', $parser);
     }

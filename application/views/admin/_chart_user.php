@@ -1,33 +1,31 @@
 <?php
-  $groupTraining = [];
-  $groupTesting = [];
-  foreach($training as $val){
-    $groupTraining[$val['kelas']] = $val['total'];
-  };
-  foreach($testing as $val){
-    $groupTesting[$val['kelas']] = $val['total'];
+  $groupspk = [];
+ 
+  foreach($spk as $val){
+    $groupspk[$val['kelas']] = $val['total'];
   };
 ?>
 <script src="<?= base_url('assets/js/Chart.min.js') ?>"></script>
 <script>
   data = {
-    labels: ["Data Latih", "Data Uji"],
+    labels: ["Data Siswa"],
     datasets: [
       {
         label: "IPA",
         backgroundColor: "rgba(80, 80, 200, 0.7)",
         borderWidth: 1.0,
-        data: [<?= $groupTraining['MIPA'] ?>, <?= $groupTesting['MIPA'] ?>]
+        data: [<?= $groupspk['MIPA'] ?>]
       },
       {
         label: "IPS",
         backgroundColor: "rgba(80, 200, 80, 0.7)",
         borderWidth: 1.0,
-        data: [<?= $groupTraining['IPS'] ?>, <?= $groupTesting['IPS'] ?>]
+        data: [<?= $groupspk['IPS'] ?>]
       }
     ],
+
   }
-  var ctx = document.getElementById('dashchart').getContext('2d');
+  var ctx = document.getElementById('dashchartuser').getContext('2d');
   window.myBar = new Chart(ctx, {
     type: 'bar',
     data: data,
