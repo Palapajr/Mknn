@@ -43,14 +43,14 @@ class Spk_log extends CI_Controller {
                 $no++;
                 $row = array();
 
-            //     //tombol 
-            //     $tomboledit = "<button type=\"button\" class=\"btn btn-sm btn-outline-info\" title=\"Edit Data\" onclick=\"edit('" . $field->nis . "')\">
-            //     <i class=\"fa fa-tags\"></i>
-            // </button>";
+                //tombol 
+                $tomboledit = "<button type=\"button\" class=\"btn btn-sm btn-outline-info\" title=\"Edit Data\" onclick=\"edit('" . $field->nis . "')\">
+                <i class=\"fa fa-tags\"></i>
+            </button>";
 
-            //     $tombolhapus = "<button type=\"button\" class=\"btn btn-sm btn-outline-danger\" title=\"Hapus Data\" onclick=\"hapus('" . $field->nis . "')\">
-            //     <i class=\"fa fa-trash\"></i>
-            // </button>";
+                $tombolhapus = "<button type=\"button\" class=\"btn btn-sm btn-outline-danger\" title=\"Hapus Data\" onclick=\"hapus('" . $field->nis . "')\">
+                <i class=\"fa fa-trash\"></i>
+            </button>";
 
                 $row[] = $no;
                 $row[] = $field->nis;
@@ -68,7 +68,7 @@ class Spk_log extends CI_Controller {
                 $row[] = $field->minat;
                 $row[] = $field->nilai_iq;
                 $row[] = $field->kelas;
-                // $row[] = $tomboledit . ' ' . $tombolhapus;
+                $row[] = $tomboledit . ' ' . $tombolhapus;
                 $data[] = $row;
             }
 
@@ -90,7 +90,7 @@ class Spk_log extends CI_Controller {
         if ($this->input->is_ajax_request() == true) {
             $nis = $this->input->post('nis', true);
 
-            $ambildata = $this->training->ambildata($nis);
+            $ambildata = $this->spk->ambildata($nis);
 
             if ($ambildata->num_rows() > 0) {
                 $row = $ambildata->row_array();
@@ -114,7 +114,7 @@ class Spk_log extends CI_Controller {
             }
             
             $msg = [
-                'sukses' => $this->load->view('admin/modaledittraining', $data, true)
+                'sukses' => $this->load->view('admin/modaleditspk', $data, true)
             ];
 
             echo json_encode($msg);
@@ -140,7 +140,7 @@ class Spk_log extends CI_Controller {
             $nilai_iq = $this->input->post('nilai_iq', true);
             $kelas = $this->input->post('kelas', true);
 
-            $this->training->update($nis, $nama_siswa, $rapor_ind, $usbn_ind, $rapor_ing, $usbn_ing, $rapor_mtk, $usbn_mtk, $rapor_ipa, $usbn_ipa, $rapor_ips, $usbn_ips, $minat, $nilai_iq, $kelas);
+            $this->spk->update($nis, $nama_siswa, $rapor_ind, $usbn_ind, $rapor_ing, $usbn_ing, $rapor_mtk, $usbn_mtk, $rapor_ipa, $usbn_ipa, $rapor_ips, $usbn_ips, $minat, $nilai_iq, $kelas);
 
             $msg = [
                 'sukses' => 'data mahasiswa berhasil di-update'
@@ -154,7 +154,7 @@ class Spk_log extends CI_Controller {
         if ($this->input->is_ajax_request() == true) {
             $nis = $this->input->post('nis', true);
 
-            $hapus = $this->training->hapus($nis);
+            $hapus = $this->spk->hapus($nis);
 
             if ($hapus) {
                 $msg = [

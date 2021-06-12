@@ -52,7 +52,7 @@
                             <th>Minat</th>
                             <th>Nilai IQ</th>
                             <th>Kelas</th>
-                            <!-- <th>Aksi</th> -->
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -102,7 +102,7 @@ $(document).ready(function () {
 function edit(nis) {
     $.ajax({
         type: 'post',
-        url: "<?= site_url('spk_log/formedit') ?>",
+        url: "<?= site_url('Spk_log/formedit') ?>",
         data: {
             nis: nis
         },
@@ -110,10 +110,10 @@ function edit(nis) {
         success: function(response) {
             if (response.sukses) {
                 $('.viewmodal').html(response.sukses).show();
-                $('#modalspk_log').on('shown.bs.modal', function(e) {
+                $('#modaleditspk').on('shown.bs.modal', function(e) {
                     $('#nama_siswa').focus();
                 })
-                $('#modalspk_log').modal('show');
+                $('#modaleditspk').modal('show');
             }
         }
     });

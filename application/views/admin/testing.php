@@ -24,7 +24,7 @@
             </div>
             <div class="block-content block-content-full">
             <?= $this->session->flashdata('pesan'); ?>
-            <button type="button" class="btn btn-success mr-5 mb-5 left" id="tomboltambah">
+                <button type="button" class="btn btn-success mr-5 mb-5 left" id="tomboltambah">
                     <i class="fa fa-plus mr-5"></i>Tambah Data
                 </button>
                 <button type="button" class="btn btn-primary mr-5 mb-5" data-toggle="modal" data-target="#modal-popin">
