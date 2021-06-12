@@ -39,70 +39,70 @@
                 <div class="form-group row">
                     <label for="nobp" class="col-sm-2 col-form-label">Nilai Raport IND</label>
                     <div class="col-sm-4">
-                        <input type="text" name="rapor_ind" id="rapor_ind" class="form-control" maxlength="2">
+                        <input type="number" min="0" max="100" step=".01" name="rapor_ind" id="rapor_ind" class="form-control" >
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="nobp" class="col-sm-2 col-form-label">Nilai USBN IND</label>
                     <div class="col-sm-4">
-                        <input type="text" name="usbn_ind" id="usbn_ind" class="form-control" maxlength="2">
+                        <input type="number" min="0" max="100" step=".01" name="usbn_ind" id="usbn_ind" class="form-control" >
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="nobp" class="col-sm-2 col-form-label">Nilai Raport ING</label>
                     <div class="col-sm-4">
-                        <input type="text" name="rapor_ing" id="rapor_ing" class="form-control" maxlength="2">
+                        <input type="number" min="0" max="100" step=".01" name="rapor_ing" id="rapor_ing" class="form-control" >
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="nobp" class="col-sm-2 col-form-label">Nilai USBN ING</label>
                     <div class="col-sm-4">
-                        <input type="text" name="usbn_ing" id="usbn_ing" class="form-control" maxlength="2">
+                        <input type="number" min="0" max="100" step=".01" name="usbn_ing" id="usbn_ing" class="form-control" >
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="nobp" class="col-sm-2 col-form-label">Nilai Raport MTK</label>
                     <div class="col-sm-4">
-                        <input type="text" name="rapor_mtk" id="rapor_mtk" class="form-control" maxlength="2">
+                        <input type="number" min="0" max="100" step=".01" name="rapor_mtk" id="rapor_mtk" class="form-control" >
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="nobp" class="col-sm-2 col-form-label">Nilai USBN MTK</label>
                     <div class="col-sm-4">
-                        <input type="text" name="usbn_mtk" id="usbn_mtk" class="form-control" maxlength="2">
+                        <input type="number" min="0" max="100" step=".01" name="usbn_mtk" id="usbn_mtk" class="form-control" >
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="nobp" class="col-sm-2 col-form-label">Nilai Raport IPA</label>
                     <div class="col-sm-4">
-                        <input type="text" name="rapor_ipa" id="rapor_ipa" class="form-control" maxlength="2">
+                        <input type="number" min="0" max="100" step=".01" name="rapor_ipa" id="rapor_ipa" class="form-control" >
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="nobp" class="col-sm-2 col-form-label">Nilai USBN IPA</label>
                     <div class="col-sm-4">
-                        <input type="text" name="usbn_ipa" id="usbn_ipa" class="form-control" maxlength="2">
+                        <input type="number" min="0" max="100" step=".01" name="usbn_ipa" id="usbn_ipa" class="form-control" >
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="nobp" class="col-sm-2 col-form-label">Nilai Raport IPS</label>
                     <div class="col-sm-4">
-                        <input type="text" name="rapor_ips" id="rapor_ips" class="form-control" maxlength="2">
+                        <input type="number" min="0" max="100" step=".01" name="rapor_ips" id="rapor_ips" class="form-control" >
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="nobp" class="col-sm-2 col-form-label">Nilai USBN IPS</label>
                     <div class="col-sm-4">
-                        <input type="text" name="usbn_ips" id="usbn_ips" class="form-control" maxlength="2">
+                        <input type="number" min="0" max="100" step=".01" name="usbn_ips" id="usbn_ips" class="form-control" >
                     </div>
                 </div>
 
