@@ -53,6 +53,8 @@ class Simulasi extends CI_Controller {
             unset($row['kelas']);
             $prep_training[$x] = array_values($row);
         }
+        $norm_training = $this->mknn->normalize_array($prep_training);
+
         $data_testing = $this->testing->get()->result_array();
         $prep_testing = [];
         $label_testing = [];
@@ -62,9 +64,11 @@ class Simulasi extends CI_Controller {
             unset($row['kelas']);
             $prep_testing[$x] = array_values($row);
         }
-        $this->mknn->fit($prep_training, $label_training);
+        $norm_testing = $this->mknn->normalize_array($prep_testing);
+        
+        $this->mknn->fit($norm_training, $label_training);
         return [
-            'klasifikasi' => $this->mknn->predict($prep_testing, $label_testing),
+            'klasifikasi' => $this->mknn->predict($norm_testing, $label_testing),
             'score' => $this->mknn->score($label_testing),
             'confmat' => $this->mknn->confmat($label_testing),
             'total_training' => count($data_training),

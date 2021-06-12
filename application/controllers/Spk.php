@@ -19,13 +19,17 @@ class Spk extends CI_Controller {
             $payload['input'] = $this->input->post();
 
             if($action == "savepdf"){
+                $this->simpan_log($payload);
+                $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"><i class="fas fa-exclamation-triangle"></i> Data berhasil disimpan</div>');
                 return $this->proses_pdf($payload);
             }
 
             if($action == "savelog"){
                 $this->simpan_log($payload);
                 $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert"><i class="fas fa-exclamation-triangle"></i> Data berhasil disimpan</div>');
-                redirect(base_url('spk_log'));
+                if ($this->session->userdata('nama')) {
+                    redirect(base_url('spk_log'));
+                }
             }
         }
 
@@ -53,12 +57,14 @@ class Spk extends CI_Controller {
             unset($row['kelas']);
             $prep_training[$x] = array_values($row);
         }
+        $norm_training = $this->mknn->normalize_array($prep_training);
 
         // klasifikasi data inputan
         $test_transformed = array_values($this->data->apply_transform($data));
-        $this->mknn->fit($prep_training, $label_training);
+        $test_normalized = $this->mknn->normalize_num($test_transformed);
+        $this->mknn->fit($norm_training, $label_training);
         return [
-            'klasifikasi' => $this->mknn->predict([$test_transformed])
+            'klasifikasi' => $this->mknn->predict([$test_normalized])
         ];
     }
 

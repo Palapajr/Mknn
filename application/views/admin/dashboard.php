@@ -60,7 +60,7 @@
                 <div class="block-content block-content-full">
                 <h3 class="text-center">Grafik Data Siswa Masuk Berdasarkan Rekomendasi Jurusan </h3>
                     <div class="row invisible" data-toggle="appear">
-                        <canvas id="dashchartuser"></canvas>
+                        <canvas id="dashchart"></canvas>
                     </div>
                 </div>    
             </div>

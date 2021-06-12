@@ -113,4 +113,24 @@ class MKNN{
         }
         return $array;
     }
+
+    public function normalize_array($array){
+        $flipped = $this->flip_diagonally($array);
+        foreach($flipped as $index=>$row){
+            $flipped[$index] = $this->normalize_num($row);
+        }
+
+        return $this->flip_diagonally($flipped);
+    }
+
+    public function flip_diagonally($arr) {
+        // from https://stackoverflow.com/a/797268
+        $out = array();
+        foreach ($arr as $key => $subarr) {
+            foreach ($subarr as $subkey => $subvalue) {
+                $out[$subkey][$key] = $subvalue;
+            }
+        }
+        return $out;
+    }
 }
