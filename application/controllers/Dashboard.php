@@ -26,10 +26,10 @@ class Dashboard extends CI_Controller {
             'tittle' => 'SIPILJur - Welcome Dashboard',
             'isi' => $this->load->view('admin/dashboard', $sum,  true),
             'script' => $this->load->view('admin/_chart_dashboard', $group, true)
-
+        ];
         if (!$this->session->userdata('nama')) {
             $parser['script'] = $this->load->view('admin/_chart_user', $group, true);
         }
         $this->parser->parse('admin/main', $parser);
     }
-    }   
+}
