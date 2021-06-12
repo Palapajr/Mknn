@@ -67,46 +67,46 @@
                             <tr>
                                 <td>Bahasa Indonesia</td>
                                 <td>
-                                    <input type="number" name="rapor_ind" id="rapor_ind" class="form-control" min="0" max="100" value="<?= isset($input['rapor_ind']) ? $input['rapor_ind'] : '' ?>">
+                                    <input type="number" name="rapor_ind" id="rapor_ind" class="form-control" min="0" max="100" step=".01" value="<?= isset($input['rapor_ind']) ? $input['rapor_ind'] : '' ?>">
                                 </td>
                                 <td>
-                                    <input type="number" name="usbn_ind" id="usbn_ind" class="form-control" min="0" max="100" value="<?= isset($input['usbn_ind']) ? $input['usbn_ind'] : '' ?>">
+                                    <input type="number" name="usbn_ind" id="usbn_ind" class="form-control" min="0" max="100" step=".01" value="<?= isset($input['usbn_ind']) ? $input['usbn_ind'] : '' ?>">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Bahasa Inggris</td>
                                 <td>
-                                    <input type="number" name="rapor_ing" id="rapor_ing" class="form-control" min="0" max="100" value="<?= isset($input['rapor_ing']) ? $input['rapor_ing'] : '' ?>">
+                                    <input type="number" name="rapor_ing" id="rapor_ing" class="form-control" min="0" max="100" step=".01" value="<?= isset($input['rapor_ing']) ? $input['rapor_ing'] : '' ?>">
                                 </td>
                                 <td>
-                                    <input type="number" name="usbn_ing" id="usbn_ing" class="form-control" min="0" max="100" value="<?= isset($input['usbn_ing']) ? $input['usbn_ing'] : '' ?>">
+                                    <input type="number" name="usbn_ing" id="usbn_ing" class="form-control" min="0" max="100" step=".01" value="<?= isset($input['usbn_ing']) ? $input['usbn_ing'] : '' ?>">
                                 </td>
                             </tr>
                             <tr>
                                 <td>Matematika</td>
                                 <td>
-                                    <input type="number" name="rapor_mtk" id="rapor_mtk" class="form-control" min="0" max="100" value="<?= isset($input['rapor_mtk']) ? $input['rapor_mtk'] : '' ?>">
+                                    <input type="number" name="rapor_mtk" id="rapor_mtk" class="form-control" min="0" max="100" step=".01" value="<?= isset($input['rapor_mtk']) ? $input['rapor_mtk'] : '' ?>">
                                 </td>
                                 <td>
-                                    <input type="number" name="usbn_mtk" id="usbn_mtk" class="form-control" min="0" max="100" value="<?= isset($input['usbn_mtk']) ? $input['usbn_mtk'] : '' ?>">
+                                    <input type="number" name="usbn_mtk" id="usbn_mtk" class="form-control" min="0" max="100" step=".01" value="<?= isset($input['usbn_mtk']) ? $input['usbn_mtk'] : '' ?>">
                                 </td>
                             </tr>
                             <tr>
                                 <td>IPA</td>
                                 <td>
-                                    <input type="number" name="rapor_ipa" id="rapor_ipa" class="form-control" min="0" max="100" value="<?= isset($input['rapor_ipa']) ? $input['rapor_ipa'] : '' ?>">
+                                    <input type="number" name="rapor_ipa" id="rapor_ipa" class="form-control" min="0" max="100" step=".01" value="<?= isset($input['rapor_ipa']) ? $input['rapor_ipa'] : '' ?>">
                                 </td>
                                 <td>
-                                    <input type="number" name="usbn_ipa" id="usbn_ipa" class="form-control" min="0" max="100" value="<?= isset($input['usbn_ipa']) ? $input['usbn_ipa'] : '' ?>">
+                                    <input type="number" name="usbn_ipa" id="usbn_ipa" class="form-control" min="0" max="100" step=".01" value="<?= isset($input['usbn_ipa']) ? $input['usbn_ipa'] : '' ?>">
                                 </td>
                             </tr>
                             <tr>
                                 <td>IPS</td>
                                 <td>
-                                    <input type="number" name="rapor_ips" id="rapor_ips" class="form-control" min="0" max="100" value="<?= isset($input['rapor_ips']) ? $input['rapor_ips'] : '' ?>">
+                                    <input type="number" name="rapor_ips" id="rapor_ips" class="form-control" min="0" max="100" step=".01" value="<?= isset($input['rapor_ips']) ? $input['rapor_ips'] : '' ?>">
                                 </td>
                                 <td>
-                                    <input type="number" name="usbn_ips" id="usbn_ips" class="form-control" min="0" max="100" value="<?= isset($input['usbn_ips']) ? $input['usbn_ips'] : '' ?>">
+                                    <input type="number" name="usbn_ips" id="usbn_ips" class="form-control" min="0" max="100" step=".01" value="<?= isset($input['usbn_ips']) ? $input['usbn_ips'] : '' ?>">
                                 </td>
                             </tr>
                         </table>
@@ -139,7 +139,9 @@
                 </button>
                 <?php if(isset($result)){ ?>
                 <button type="submit" class="btn btn-alt-secondary" name="actname" value="savepdf">Simpan ke PDF</button>
-                <button type="submit" class="btn btn-alt-secondary" name="actname" value="savelog">Simpan ke Riwayat</button>
+                <?php if ($this->session->userdata('nama')) { ?>
+                    <button type="submit" class="btn btn-alt-secondary" name="actname" value="savelog">Simpan ke Riwayat</button>
+                <?php } ?>
                 <?php } ?>
             </div>
         <?= form_close() ?>
