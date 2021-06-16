@@ -165,10 +165,10 @@ function edit(nis) {
     });
 }
 
-function hapus(nis) {
+function hapus(nama,kategori) {
     Swal.fire({
         title: 'Hapus',
-        text: `Yakin menghapus data siswa dengan NIS ${nis} ?`,
+        text: `Yakin menghapus Data Sitebook Kategori ${kategori} dengan judul ${nama} ?`,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -179,7 +179,7 @@ function hapus(nis) {
         if (result.value) {
             $.ajax({
                 type: "post",
-                url: "<?= site_url('Testing/hapus') ?>",
+                url: "<?= site_url('Sitebook/hapus') ?>",
                 data: {
                     nis: nis,
                 },
